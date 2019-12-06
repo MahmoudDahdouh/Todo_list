@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,20 +26,24 @@ public class AddTodoDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final EditText editText = new EditText(getContext());
-        View view = getActivity().getLayoutInflater().inflate(R.layout.add_new_item,null);
+        //View view = getActivity().getLayoutInflater().inflate(R.layout.add_new_item, null);
+        //.setView(getLayoutInflater().inflate(R.layout.list_item,null))
         return new AlertDialog
                 .Builder(getContext())
                 .setTitle("Add new Todo")
-                .setView(view)
+                .setView(editText)
 
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                       /* if (!editText.getText().toString().equals("")) {
+                        if (!editText.getText().toString().equals("")) {
                             todo = new Todo(editText.getText().toString());
                             onAddTodoListener.OnAddTodo(todo);
-                        } else*/
-                            Toast.makeText(getContext(), "Fill the field", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(getContext(), "Field", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -49,7 +52,9 @@ public class AddTodoDialog extends DialogFragment {
                         dialogInterface.dismiss();
                     }
                 })
+
                 .create();
+
     }
 
     void setOnAddTodoListener(OnAddTodoListener onAddTodoListener) {

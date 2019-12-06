@@ -15,34 +15,66 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/add_title_hint" />
+        android:hint="@string/add_title_hint"
+        android:inputType="text" />
 
     <RadioGroup
+        android:id="@+id/rg_colors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rd_red"
+            android:background="@drawable/sel_circle_red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/circle_red"
-            />
+            android:button="@null" />
 
         <RadioButton
+            android:id="@+id/rb_blue"
+            android:background="@drawable/sel_circle_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/circle_blue"
-             />
+            android:button="@null" />
 
         <RadioButton
+            android:id="@+id/rb_yellow"
+            android:layout_marginEnd="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/circle_yellow"
+            android:background="@drawable/sel_circle_yellow"
+            android:button="@null" />
 
-             />
+        <RadioButton
+            android:id="@+id/rb_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_circle_green"
+            android:button="@null" />
     </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="#222"
+            android:text="@string/cancel" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add" />
+
+    </LinearLayout>
 </LinearLayout>

@@ -19,29 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private FloatingActionButton fab;
     private List<Todo> todos;
-    // float action button click listener
-    View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Toast.makeText(MainActivity.this, "clicked !", Toast.LENGTH_SHORT).show();
 
-            AddTodoDialog addTodoDialog = new AddTodoDialog();
-            Bundle bundle = new Bundle();
-            bundle.putString("list",  "bundle");
-            addTodoDialog.setArguments(bundle);
-
-            addTodoDialog.setOnAddTodoListener(new AddTodoDialog.OnAddTodoListener() {
-                @Override
-                public void OnAddTodo(Todo todo) {
-                    todos.add(todo);
-                }
-            });
-            addTodoDialog.show(getSupportFragmentManager(),"show");
-
-
-
-        }
-    };
 
     // end onCreate
 
@@ -60,8 +38,30 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(onClickListener);
 
-
     }
+
+    // float action button click listener
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(MainActivity.this, "clicked !", Toast.LENGTH_SHORT).show();
+
+            AddTodoDialog addTodoDialog = new AddTodoDialog();
+            Bundle bundle = new Bundle();
+            bundle.putString("list", "bundle");
+            addTodoDialog.setArguments(bundle);
+
+            addTodoDialog.setOnAddTodoListener(new AddTodoDialog.OnAddTodoListener() {
+                @Override
+                public void OnAddTodo(Todo todo) {
+                    todos.add(todo);
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(MainActivity.this, todo.getTitle(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            addTodoDialog.show(getSupportFragmentManager(), "show");
+        }
+    };
 
     // build recyclerview and put the data
     public void buildRecyclerView() {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         todos.add(new Todo("One Title"));
         todos.add(new Todo("Two Title"));
         todos.add(new Todo("Three Title"));
-        todos.add(new Todo("four Title"));
+        /*todos.add(new Todo("four Title"));
         todos.add(new Todo("five Title"));
         todos.add(new Todo("six Title"));
         todos.add(new Todo("seven Title"));
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         todos.add(new Todo("twelve Title"));
         todos.add(new Todo("thirteen Title"));
         todos.add(new Todo("fourteen Title"));
-        todos.add(new Todo("fifteen Title"));
+        todos.add(new Todo("fifteen Title"));*/
 
         adapter = new TodoAdapter(todos);
 

@@ -3,45 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_marginTop="16dp"
     android:gravity="center"
-    android:padding="8dp"
-    app:cardBackgroundColor="@color/colorPrimary"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
     app:cardElevation="8dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <View
             android:id="@+id/view"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="match_parent"
-            android:background="#888" />
+            android:background="@color/green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/list_item_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_toEndOf="@id/view"
-            android:text="Title #1"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/list_item_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/list_item_title"
-            android:layout_alignStart="@id/list_item_title"
-            android:layout_toEndOf="@id/view"
-            android:text="hello im mahmoud how can i help you"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-<!--
+        <!--
         <ImageView
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
@@ -53,25 +35,42 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_star_border" />
 -->
+
+        <TextView
+            android:id="@+id/list_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/view"
+            android:text="Title 1"
+            android:textColor="@color/black_font"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/list_item_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:paddingTop="8dp"
-            android:paddingEnd="8dp"
-            app:srcCompat="@drawable/ic_edit"
-            app:tint="#fff" />
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:srcCompat="@drawable/ic_edit" />
 
         <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
 
-            android:paddingEnd="8dp"
-            android:paddingBottom="8dp"
-            app:srcCompat="@drawable/ic_delete"
-            app:tint="#fff" />
-    </RelativeLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

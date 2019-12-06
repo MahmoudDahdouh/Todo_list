@@ -6,6 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="alertDialogStyle">@style/MyAlertDialogStyle</item>
     </style>
 
+    <style name="MyAlertDialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">
+            @style/Widget.MaterialComponents.Button.OutlinedButton
+        </item>
+    </style>
 </resources>
