@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ToDo List</string>
+    <string name="add_title">Add title :</string>
+    <string name="add_title_hint">Add title</string>
+    <string name="high">High</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
+</resources>
