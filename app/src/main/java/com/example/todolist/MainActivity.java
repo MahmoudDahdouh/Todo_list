@@ -2,7 +2,6 @@ package com.example.todolist;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Toast.makeText(MainActivity.this, "clicked !", Toast.LENGTH_SHORT).show();
-
             AddTodoDialog addTodoDialog = new AddTodoDialog();
             Bundle bundle = new Bundle();
             bundle.putString("list", "bundle");
@@ -56,19 +53,20 @@ public class MainActivity extends AppCompatActivity {
                 public void OnAddTodo(Todo todo) {
                     todos.add(todo);
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(MainActivity.this, todo.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
             addTodoDialog.show(getSupportFragmentManager(), "show");
         }
     };
 
-    // build recyclerview and put the data
+    // build recycler_view and put the data
     public void buildRecyclerView() {
+
         todos = new ArrayList<>();
-        todos.add(new Todo("One Title"));
-        todos.add(new Todo("Two Title"));
-        todos.add(new Todo("Three Title"));
+        todos.add(new Todo("One Title", R.color.green, true));
+        todos.add(new Todo("Two Title", R.color.blue, false));
+        todos.add(new Todo("Three Title", R.color.red, true));
+
         /*todos.add(new Todo("four Title"));
         todos.add(new Todo("five Title"));
         todos.add(new Todo("six Title"));

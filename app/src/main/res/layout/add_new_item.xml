@@ -13,6 +13,7 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/add_todo_dialog_add_title_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/add_title_hint"
@@ -27,7 +28,7 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rd_red"
+            android:id="@+id/rb_red"
             android:background="@drawable/sel_circle_red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,6 +65,8 @@
         android:gravity="end">
 
         <Button
+            android:id="@+id/add_todo_dialog_cancel_btn"
+
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,6 +75,7 @@
             android:text="@string/cancel" />
 
         <Button
+            android:id="@+id/add_todo_dialog_add_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add" />

@@ -3,6 +3,7 @@ package com.example.todolist;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,7 @@ public class TodoAdapter extends RecyclerView.Adapter {
 
     private List<Todo> todos;
 
-    public TodoAdapter(List<Todo> todos) {
+    TodoAdapter(List<Todo> todos) {
         this.todos = todos;
     }
 
@@ -40,15 +41,21 @@ public class TodoAdapter extends RecyclerView.Adapter {
 
     class TodoHolder extends RecyclerView.ViewHolder {
 
-        TextView title;
+        private TextView title;
+        private View color;
+        private CheckBox checkBox;
 
-        public TodoHolder(@NonNull View itemView) {
+        TodoHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.list_item_title);
+            color = itemView.findViewById(R.id.list_item_color);
+            checkBox = itemView.findViewById(R.id.list_item_color_checkbox);
         }
 
-        public void bind(int position) {
+        void bind(int position) {
             title.setText(todos.get(position).getTitle());
+            color.setBackgroundResource(todos.get(position).getColor());
+            checkBox.setChecked(todos.get(position).isChecked());
         }
     }
 
