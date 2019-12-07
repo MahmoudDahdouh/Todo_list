@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:gravity="center"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="8dp"
-    app:cardElevation="8dp">
+    android:layout_marginStart="@dimen/list_item_margin"
+    android:layout_marginTop="@dimen/list_item_margin"
+    android:layout_marginEnd="@dimen/list_item_margin"
+    android:layout_marginBottom="@dimen/list_item_margin"
 
+    app:cardElevation="8dp">
+    <!---
+     -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -44,28 +46,28 @@
             android:layout_toEndOf="@id/list_item_color"
             android:text="Title 1"
             android:textColor="@color/black_font"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/list_item_color"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/list_item_edit"
+            android:id="@+id/list_item_edit_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_delete_btn"
+            app:layout_constraintEnd_toStartOf="@+id/list_item_delete_btn"
             app:srcCompat="@drawable/ic_edit" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/list_item_delete_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-
+            android:tint="@color/color_btn_delete"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"

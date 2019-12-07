@@ -5,7 +5,7 @@
     android:viewportWidth="20"
     android:viewportHeight="20">
     <path
-        android:fillColor="#4faf40"
+        android:fillColor="#4CAF50"
         android:pathData="M5,0L15,0A5,5 0,0 1,20 5L20,15A5,5 0,0 1,15 20L5,20A5,5 0,0 1,0 15L0,5A5,5 0,0 1,5 0z"
         android:strokeWidth="1"
         android:strokeColor="#00000000" />
@@ -13,7 +13,7 @@
         android:fillColor="#00000000"
         android:pathData="M5,0.5L15,0.5A4.5,4.5 0,0 1,19.5 5L19.5,15A4.5,4.5 0,0 1,15 19.5L5,19.5A4.5,4.5 0,0 1,0.5 15L0.5,5A4.5,4.5 0,0 1,5 0.5z"
         android:strokeWidth="1"
-        android:strokeColor="#4faf40" />
+        android:strokeColor="#4CAF50" />
     <path
         android:fillColor="#00000000"
         android:pathData="M17.5,4.5 L13.038,9.122 8.575,13.744"

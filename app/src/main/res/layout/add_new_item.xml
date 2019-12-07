@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_title"
-        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
@@ -30,31 +29,31 @@
         <RadioButton
             android:id="@+id/rb_red"
             android:background="@drawable/sel_circle_red"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/radiobutton_circle_size"
+            android:layout_height="@dimen/radiobutton_circle_size"
             android:layout_marginEnd="16dp"
             android:button="@null" />
 
         <RadioButton
             android:id="@+id/rb_blue"
             android:background="@drawable/sel_circle_blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/radiobutton_circle_size"
+            android:layout_height="@dimen/radiobutton_circle_size"
             android:layout_marginEnd="16dp"
             android:button="@null" />
 
         <RadioButton
             android:id="@+id/rb_yellow"
             android:layout_marginEnd="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/radiobutton_circle_size"
+            android:layout_height="@dimen/radiobutton_circle_size"
             android:background="@drawable/sel_circle_yellow"
             android:button="@null" />
 
         <RadioButton
             android:id="@+id/rb_green"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/radiobutton_circle_size"
+            android:layout_height="@dimen/radiobutton_circle_size"
             android:background="@drawable/sel_circle_green"
             android:button="@null" />
     </RadioGroup>

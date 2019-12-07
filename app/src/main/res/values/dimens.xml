@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="circle_size">50dp</dimen>
+    <dimen name="radiobutton_circle_size">50dp</dimen>
+    <dimen name="list_item_margin">4dp</dimen>
 </resources>

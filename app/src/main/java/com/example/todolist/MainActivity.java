@@ -31,10 +31,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         fab = findViewById(R.id.fab);
 
-
         //Function
         buildRecyclerView();
-
         fab.setOnClickListener(onClickListener);
 
     }
@@ -44,18 +42,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             AddTodoDialog addTodoDialog = new AddTodoDialog();
-            Bundle bundle = new Bundle();
-            bundle.putString("list", "bundle");
-            addTodoDialog.setArguments(bundle);
-
             addTodoDialog.setOnAddTodoListener(new AddTodoDialog.OnAddTodoListener() {
                 @Override
                 public void OnAddTodo(Todo todo) {
                     todos.add(todo);
-                    adapter.notifyDataSetChanged();
+                    adapter.notifyItemInserted(todos.lastIndexOf(todo));
+                    //if(todos.size()<4)
+
                 }
             });
-            addTodoDialog.show(getSupportFragmentManager(), "show");
+            addTodoDialog.show(getSupportFragmentManager(), "show_add_dialog");
         }
     };
 
@@ -66,20 +62,20 @@ public class MainActivity extends AppCompatActivity {
         todos.add(new Todo("One Title", R.color.green, true));
         todos.add(new Todo("Two Title", R.color.blue, false));
         todos.add(new Todo("Three Title", R.color.red, true));
-
-        /*todos.add(new Todo("four Title"));
+        todos.add(new Todo("four Title"));
         todos.add(new Todo("five Title"));
         todos.add(new Todo("six Title"));
         todos.add(new Todo("seven Title"));
         todos.add(new Todo("eight Title"));
         todos.add(new Todo("nine Title"));
         todos.add(new Todo("ten Title"));
-        todos.add(new Todo("twelve Title"));
+        todos.add(new Todo("eleven Title"));
+      /*  todos.add(new Todo("twelve Title"));
         todos.add(new Todo("thirteen Title"));
         todos.add(new Todo("fourteen Title"));
-        todos.add(new Todo("fifteen Title"));*/
-
-        adapter = new TodoAdapter(todos);
+        todos.add(new Todo("fifteen Title"));
+*/
+        adapter = new TodoAdapter(this, todos, getSupportFragmentManager());
 
         recyclerView.setAdapter(adapter);
 
