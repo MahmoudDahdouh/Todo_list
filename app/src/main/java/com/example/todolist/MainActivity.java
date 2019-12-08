@@ -19,7 +19,15 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private List<Todo> todos;
 
+    private OnEditClickListener onEditClickListener;
 
+    public void setOnEditClickListener(OnEditClickListener onEditClickListener) {
+        this.onEditClickListener = onEditClickListener;
+    }
+
+    interface OnEditClickListener {
+        void onEditClick(Todo todo);
+    }
     // end onCreate
 
     @Override

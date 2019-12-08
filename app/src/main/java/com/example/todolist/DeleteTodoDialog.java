@@ -55,11 +55,13 @@ public class DeleteTodoDialog extends DialogFragment {
         return alertDialog;
     }
 
-    public void setOnDeleteClickListener(OnDeleteClickListener onDeleteClickListener) {
+    void setOnDeleteClickListener(OnDeleteClickListener onDeleteClickListener) {
         this.onDeleteClickListener = onDeleteClickListener;
     }
 
     interface OnDeleteClickListener {
         void onDeleteClick(int position);
     }
+
+
 }

@@ -20,7 +20,6 @@ public class TodoAdapter extends RecyclerView.Adapter {
 
     private List<Todo> todos;
     private Context context;
-    private OnDeleteClickListener onDeleteClickListener;
     private FragmentManager fragmentManager;
 
     TodoAdapter(Context context, List<Todo> todos, FragmentManager fragmentManager) {
@@ -48,28 +47,21 @@ public class TodoAdapter extends RecyclerView.Adapter {
         return todos.size();
     }
 
-    public void setOnDeleteClickListener(OnDeleteClickListener onDeleteClickListener) {
-        this.onDeleteClickListener = onDeleteClickListener;
-    }
-
-
-    interface OnDeleteClickListener {
-        void onDeleteClick(int position);
-    }
 
     class TodoHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private View color;
         private CheckBox checkBox;
         private ImageView deleteBtn;
+        private ImageView editBtn;
 
         TodoHolder(@NonNull final View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.list_item_title);
             color = itemView.findViewById(R.id.list_item_color);
             checkBox = itemView.findViewById(R.id.list_item_color_checkbox);
-            deleteBtn = itemView.findViewById(R.id.list_item_delete_btn);
 
+            deleteBtn = itemView.findViewById(R.id.list_item_delete_btn);
             // Delete Item
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,9 +71,7 @@ public class TodoAdapter extends RecyclerView.Adapter {
                     Bundle bundle = new Bundle();
                     bundle.putInt("position", getAdapterPosition());
                     deleteTodoDialog.setArguments(bundle);
-
                     deleteTodoDialog.show(fragmentManager, "show_delete_dialog");
-
                     deleteTodoDialog.setOnDeleteClickListener(new DeleteTodoDialog.OnDeleteClickListener() {
                         @Override
                         public void onDeleteClick(int position) {
@@ -90,26 +80,31 @@ public class TodoAdapter extends RecyclerView.Adapter {
                             deleteTodoDialog.dismiss();
                         }
                     });
+                }
+            });
 
-/*
-                    new AlertDialog.Builder(context)
-                            .setTitle("Delete")
-                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
 
-                                }
-                            })
-                            .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.dismiss();
-                                }
-                            })
-                            .create().show();*/
+            editBtn = itemView.findViewById(R.id.list_item_edit_btn);
+            // Edit Action
+            editBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    EditTodoDialog editDialog = new EditTodoDialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("todo_edit", todos.get(getAdapterPosition()).getTitle());
+                    bundle.putInt("position", getAdapterPosition());
+                    editDialog.setArguments(bundle);
+
+//                    editDialog.setOnEditClickListener(new EditTodoDialog.OnEditClickListener() {
+//                        @Override
+//                        public void onEditClick(int position) {
+//                            todos.set(position,)
+//                        }
+//                    });
 
                 }
             });
+
         }
 
         void bind(int position) {
